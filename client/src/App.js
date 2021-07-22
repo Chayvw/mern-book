@@ -1,6 +1,9 @@
 import React, {useEffect} from 'react';
 import axios from 'axios';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Home from './containers/Home/Home';
+import Search from './containers/Search/Search';
+import NoMatch from './containers/NoMatch/NoMatch';
 
  
 function App() {
@@ -13,9 +16,13 @@ function App() {
     })
   }, [])
   return (
-    <div className="App">
-      <h1>Hello World</h1>
-    </div>
+  <Router>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path ="/search" component={Search} />
+      <Route component={NoMatch} />
+    </Switch>
+  </Router>
   );
 }
 
