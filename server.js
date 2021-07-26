@@ -1,9 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
 
 const app = express();
 
 const loginController = require("./controller/loginController");
+const signupController = require("./controller/signupController");
 
 const PORT = process.env.PORT || 3001;
 
@@ -16,11 +18,18 @@ app.get("/api/config", (req, res) =>{
     res.json({success:true})
 });
 
+app.use(loginController);
+app.use(signupController);
+
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mernbook", { useNewUrlParser: true , useUnifiedTopology: true })
 .then(()=>{console.log("Connected Successfully")})
 .catch((err)=>{console.log("Unable to connect")});
 
-app.use(loginController);
+
+
+app.get("*", (req, res) =>{
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+} )
 
 app.listen(PORT, () =>{
     console.log(`Express server running on http://localhost:${PORT}`)
