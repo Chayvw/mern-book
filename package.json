@@ -33,6 +33,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.3",
     "path": "^0.12.7",
+    "react-external-link": "^1.2.2",
     "validator": "^13.6.0"
   }
 }

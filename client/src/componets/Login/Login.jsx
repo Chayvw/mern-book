@@ -13,6 +13,7 @@ import axios from 'axios';
             .post("/api/user", { email: email, password: password, name: name })
             .then((response) => {
                 console.log(response.data);
+                props.history.push("/search")
                 // const loginHandle =(response.data.data);
 
             })
