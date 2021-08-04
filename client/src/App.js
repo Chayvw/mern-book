@@ -7,6 +7,7 @@ import NoMatch from './containers/NoMatch/NoMatch';
 import NavBar from './containers/NavBar/NavBar';
 import Login from './componets/Login/Login';
 import FutureSearches from './componets/FutureSearches/FutureSearches';
+import Books from './componets/Books/Books';
 
  
 function App() {
@@ -26,6 +27,7 @@ function App() {
       <Route path ="/search" component={Search} />
       <Route path="/login" component={Login} />
       <Route path="/futuresearches" component={FutureSearches} />
+      <Route path ="/books" component={Books} />
       <Route component={NoMatch} />
     </Switch>
   </Router>
