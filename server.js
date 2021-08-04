@@ -6,6 +6,7 @@ const app = express();
 
 const loginController = require("./controller/loginController");
 const signupController = require("./controller/signupController");
+const bookController = require("./controller/bookController");
 
 const PORT = process.env.PORT || 3001;
 
@@ -20,6 +21,7 @@ app.get("/api/config", (req, res) =>{
 
 app.use(loginController);
 app.use(signupController);
+app.use(bookController);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mernbook", { useNewUrlParser: true , useUnifiedTopology: true })
 .then(()=>{console.log("Connected Successfully")})

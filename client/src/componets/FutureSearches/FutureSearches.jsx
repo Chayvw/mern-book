@@ -47,7 +47,7 @@ function NewBook(props) {
                 <div>
                     <label>
                         <input className="input-field col s8" type="checkbox" onChange={handleCheckBoxChange}/>
-                        <span>Vegetarian?</span>
+                        <span>Have Read?</span>
                     </label>
                 </div>
                 <div className="row">
