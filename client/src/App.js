@@ -6,6 +6,7 @@ import Search from './containers/Search/Search';
 import NoMatch from './containers/NoMatch/NoMatch';
 import NavBar from './containers/NavBar/NavBar';
 import Login from './componets/Login/Login';
+import FutureSearches from './componets/FutureSearches/FutureSearches';
 
  
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route path ="/search" component={Search} />
       <Route path="/login" component={Login} />
+      <Route path="/futuresearches" component={FutureSearches} />
       <Route component={NoMatch} />
     </Switch>
   </Router>
