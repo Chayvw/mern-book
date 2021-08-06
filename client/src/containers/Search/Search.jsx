@@ -23,7 +23,9 @@ class Search extends Component {
         const queryTitle = this.state.titleInput;
         const queryAuthor = this.state.authorInput;
         const apiKey = 'AIzaSyDPs9WBQADJ0siNTc2tjnI9RlncFclxhRU'
-        const urlBase = `https://www.googleapis.com/books/v1/volumes?q=${queryTitle}+inauthor:${queryAuthor}&key=${apiKey}`
+        // const urlBase = `https://www.googleapis.com/books/v1/volumes?q=${queryTitle}+inauthor:${queryAuthor}&key=${apiKey}`
+        const urlBase = `https://www.googleapis.com/books/v1/volumes?q=bayou+inauthor:chopin&key=${apiKey}`
+
 
         axios({
             url: urlBase,

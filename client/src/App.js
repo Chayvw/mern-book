@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import axios from 'axios';
+import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Home from './containers/Home/Home';
 import Search from './containers/Search/Search';
@@ -12,14 +13,28 @@ import Books from './componets/Books/Books';
  
 function App() {
   // axios call to check if my front end is connected to my backend
-  useEffect(() => {
-    axios.get("/api/config").then((response) => {
-      console.log(response.data)
-    }).catch((err) => {
-      console.log(err)
-    })
-  }, [])
+  // useEffect(() => {
+  //   axios.get("/api/config").then((response) => {
+  //     console.log(response.data)
+  //   }).catch((err) => {
+  //     console.log(err)
+  //   })
+  // }, [])
+  const backgroundStyle ={
+    backgroundColor: "#fff9c4",
+    height: "900px",
+    // width: "1250px",
+    // margin: "0",
+    padding: "0"
+    // display: "flex",
+  // flexDirection: "column"
+  // padding:0,
+  // margin: 0 auto
+  // boxSizing:"border-box"
+}
+
   return (
+    <div className= "container-main" style={backgroundStyle}>
   <Router>
     {/* <NavBar /> */}
     <Switch>
@@ -31,6 +46,7 @@ function App() {
       <Route component={NoMatch} />
     </Switch>
   </Router>
+  </div>
   );
 }
 
