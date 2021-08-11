@@ -8,6 +8,13 @@ const BookSchema = new Schema({
         trim:true,
         required: "Book name is required"
     },
+
+    author: {
+        type:String,
+        trim:true,
+        
+    },
+
     hasRead :{
         type: Boolean,
         default: false,

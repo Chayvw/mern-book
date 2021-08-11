@@ -7,32 +7,35 @@ function NewBook(props) {
     // define state thats going to hold the input value 
     const [book, setBook] = useState("");
 
+    // define state thats going to hold the input value 
+    const [author, setAuthor] = useState("");
+
     // define state thats going to update the checkbox
     const [checked, setChecked] = useState(false);
 
-    const handleInputChange= (event) => {
+    const handleInputChange = (event) => {
         // create the event handler that updates the states when the input value changes
         setBook(event.target.value)
     };
 
-    const handleCheckBoxChange = () =>{
+    const handleCheckBoxChange = () => {
         setChecked(true);
-        }
+    }
 
-        const handleSubmit = (event)=>{
-            event.preventDefault()
-            // top three most difficult things to figure out
-            axios.post("/api/books", {name:book, hasRead:checked}).then((response)=>{
-                console.log(response.data);
-                props.history.push("/books")
-            }).catch((err)=>{
-                console.log(err)
-            });
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        // top three most difficult things to figure out
+        axios.post("/api/books", { name: book, author: author, hasRead: checked }).then((response) => {
+            console.log(response.data);
+            props.history.push("/books")
+        }).catch((err) => {
+            console.log(err)
+        });
 
-            // components get passed props from react router and they we can find history 
+        // components get passed props from react router and they we can find history 
 
     }
-    
+
     return (
         <div className="container">
             <div class="row">
@@ -43,10 +46,17 @@ function NewBook(props) {
                             <label htmlFor="book">Book Name</label>
                         </div>
                     </div>
+                    <div className="row">
+                        <div className="input-field col s8">
+                            <input id="name" type="text" value={author} onChange={handleInputChange} />
+                            <label htmlFor="book">Author</label>
+                        </div>
+
+                    </div>
                 </form>
                 <div>
                     <label>
-                        <input className="input-field col s8" type="checkbox" onChange={handleCheckBoxChange}/>
+                        <input className="input-field col s8" type="checkbox" onChange={handleCheckBoxChange} />
                         <span>Have Read?</span>
                     </label>
                 </div>
